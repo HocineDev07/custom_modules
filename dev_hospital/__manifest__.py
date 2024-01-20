@@ -25,7 +25,6 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
         'views/dev_hospital_patient_view.xml',
         'views/templates.xml',
     ],
