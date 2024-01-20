@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="view_patient_form_inherit" model="ir.ui.view">
+            <field name="name">hospital.patient.inherit</field>
+            <field name="model">hospital.patient</field>
+            <field name="inherit_id" ref="om_hospital.view_patient_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='note']" position="after">
+                    <field name="confirm_user_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
