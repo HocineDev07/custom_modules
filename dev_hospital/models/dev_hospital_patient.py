@@ -8,7 +8,7 @@ class dev_hospital_patient(models.Model):
     _description = 'Dev Hospital Patient'
 
     name = fields.Char(string='Name')
-    reference = fields.Char(string='Reference Order', readonly=True, copy=False)
+    reference = fields.Char(string='Reference Order', copy=False)
     responsible_id = fields.Many2one('res.users', string='Responsible',tracking=True)
     age = fields.Integer(string='Age')
     appointment_count = fields.Integer(string='Appointment Count', readonly=True)
@@ -17,6 +17,14 @@ class dev_hospital_patient(models.Model):
         ('female', 'Female'),
         ('other', 'Other')
     ],tracking=True, required=True, default='male')
+    note = fields.Text(string='Description')
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('confirmed', 'Confirmed'),
+        ('done', 'done'),
+        ('cancel', 'Cancel'),
+    ], tracking=True, default='draft')
+    image = fields.Binary(string='Patient Image')
 
 
 
