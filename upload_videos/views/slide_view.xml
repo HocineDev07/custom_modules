@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="view_slide_slide_form_inherit" model="ir.ui.view">
+            <field name="name">upload_video.slide.slide.inherit</field>
+            <field name="model">slide.slide</field>
+            <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='slide_category']" position="after">
+                    <field name="is_local"
+                           attrs="{'invisible': [('slide_category', '!=', 'video')],
+                                    'readonly': [('slide_category', '!=', 'video')]}"/>
+                    <field name="upload_video"
+                           attrs="{'required': [('is_local', '=', True)],
+                                    'invisible': ['|',('slide_category', '!=', 'video'),('is_local', '=', False)],
+                                    'readonly': ['|',('slide_category', '!=', 'video'),('is_local', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='video_url']" position="attributes">
+                    <attribute name="attrs">{'required':[('is_local', '=', False)],
+                        'invisible': [('is_local', '=', True)],
+                        'readonly': [('is_local', '=', True)]}
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
