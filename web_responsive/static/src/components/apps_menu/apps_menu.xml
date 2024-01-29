@@ -37,11 +37,7 @@
                 data-hotkey="a"
                 t-on-click.stop="() => this.setOpenState(!state.open,true)"
             >
-<<<<<<< HEAD
                 <i class="oi oi-apps" />
-=======
-                <i class="fa fa-th-large" />
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
             </button>
             <div t-if="state.open" class="dropdown-menu-custom">
                 <t t-slot="default" />
