@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Odoo 16 Development Tutorials',
-    'version': '2.0.1',
+    'version': '2.0.2',
     'summary': 'Odoo 16 Development Tutorials',
     'sequence': -100,
     'description': """Odoo 16 Development Tutorials""",
