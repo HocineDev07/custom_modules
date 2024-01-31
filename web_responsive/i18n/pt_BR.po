@@ -9,82 +9,51 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-22 08:27+0000\n"
-<<<<<<< HEAD
 "PO-Revision-Date: 2023-10-28 16:10+0000\n"
 "Last-Translator: Adriano Prado <adrianojprado@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/"
 "23907/pt_BR/)\n"
-=======
-"PO-Revision-Date: 2020-03-21 21:13+0000\n"
-"Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/"
-"teams/23907/pt_BR/)\n"
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-<<<<<<< HEAD
 "X-Generator: Weblate 4.17\n"
-=======
-"X-Generator: Weblate 3.10\n"
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/chatter_topbar/chatter_topbar.xml:0
 #, python-format
 msgid "Activities"
-<<<<<<< HEAD
 msgstr "Atividades"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/search_panel/search_panel.xml:0
 #, python-format
 msgid "All"
-<<<<<<< HEAD
 msgstr "Tudo"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/chatter_topbar/chatter_topbar.xml:0
 #, python-format
 msgid "Attachment counter loading..."
-<<<<<<< HEAD
 msgstr "Carregando do contador de anexos..."
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/chatter_topbar/chatter_topbar.xml:0
 #, python-format
 msgid "Attachments"
-<<<<<<< HEAD
 msgstr "Anexos"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/control_panel/control_panel.xml:0
 #, python-format
 msgid "CLEAR"
-<<<<<<< HEAD
 msgstr "LIMPAR"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
@@ -99,33 +68,21 @@ msgstr "Descartar"
 #: code:addons/web_responsive/static/src/components/search_panel/search_panel.xml:0
 #, python-format
 msgid "FILTER"
-<<<<<<< HEAD
 msgstr "FILTRAR"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/apps_menu/apps_menu.xml:0
 #, python-format
 msgid "Home Menu"
-<<<<<<< HEAD
 msgstr "Menu Inicial"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/chatter_topbar/chatter_topbar.xml:0
 #, python-format
 msgid "Log note"
-<<<<<<< HEAD
 msgstr "Nota de Registro"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
@@ -146,11 +103,7 @@ msgstr "Minimizar"
 #: code:addons/web_responsive/static/src/legacy/xml/form_buttons.xml:0
 #, python-format
 msgid "New"
-<<<<<<< HEAD
 msgstr "Novo"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
@@ -158,11 +111,7 @@ msgstr ""
 #: code:addons/web_responsive/static/src/components/search_panel/search_panel.xml:0
 #, python-format
 msgid "SEE RESULT"
-<<<<<<< HEAD
 msgstr "VER RESULTADO"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
@@ -183,33 +132,21 @@ msgstr "Pesquisar menus..."
 #: code:addons/web_responsive/static/src/components/control_panel/control_panel.xml:0
 #, python-format
 msgid "Search..."
-<<<<<<< HEAD
 msgstr "Procurar..."
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/chatter_topbar/chatter_topbar.xml:0
 #, python-format
 msgid "Send message"
-<<<<<<< HEAD
 msgstr "Enviar menssagem"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #. module: web_responsive
 #. odoo-javascript
 #: code:addons/web_responsive/static/src/components/control_panel/control_panel.xml:0
 #, python-format
 msgid "View switcher"
-<<<<<<< HEAD
 msgstr "Ver alternador"
-=======
-msgstr ""
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
 
 #, python-format
 #~ msgid "Create"

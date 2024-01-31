@@ -8,11 +8,7 @@
 {
     "name": "Web Responsive",
     "summary": "Responsive web client, community-supported",
-<<<<<<< HEAD
     "version": "16.0.1.2.3",
-=======
-    "version": "16.0.1.1.3",
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
     "category": "Website",
     "website": "https://github.com/OCA/web",
     "author": "LasLabs, Tecnativa, ITerra, Onestein, "

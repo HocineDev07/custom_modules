@@ -10,11 +10,7 @@
     position: fixed;
     margin: 0;
     width: 100vw;
-<<<<<<< HEAD
     z-index: 1000;
-=======
-    z-index: 200;
->>>>>>> 513493b33b27f2573318e14380cdc3314511aa2f
     left: 0 !important;
 }
 
@@ -38,7 +34,7 @@
     .dropdown-menu-custom {
         @include full-screen-dropdown();
         cursor: pointer;
-        background: url("../../img/home-menu-bg-overlay.svg"),
+        background: url("home-menu-bg-overlay.svg"),
             linear-gradient(
                 to bottom,
                 $o-brand-odoo,
