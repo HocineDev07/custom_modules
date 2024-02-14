@@ -33,8 +33,6 @@ class HospitalPatient(models.Model):
     appointment_count = fields.Integer(string='Appointment Count', compute='_compute_appointment_count')
     image = fields.Binary(string="Patient Image")
     appointment_ids = fields.One2many('hospital.appointment', 'patient_id', string="Appointments")
-    video = fields.Binary(string="Video")
-    video_name = fields.Char(string="Video name")
 
     def _compute_appointment_count(self):
         for rec in self:
