@@ -1,5 +1,5 @@
-from odoo import api, fields, models
-
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 class PatientTag(models.Model):
     _name = "patient.tag"
@@ -10,6 +10,18 @@ class PatientTag(models.Model):
     color = fields.Integer(string="Color")
     color_2 = fields.Char(string="Color 2")
     sequence = fields.Integer(string="Sequence", default=1)
+
+    @api.returns('self', lambda value: value.id)
+    def copy(self, default=None):
+        default = {}
+        if 'name' not in default:
+            default['name'] = _("%s (copy)") % (self.name)
+        return super(PatientTag, self).copy(default=default)
+
+    def unlink(self):
+        if self.name == "VIP":
+            raise ValidationError(_("Not allowed to delete: "+ self.name))
+        return super(PatientTag, self).unlink()
 
     _sql_constraints = [
         ('unique_tag_name', 'unique(name)', 'Name must be unique!'),
