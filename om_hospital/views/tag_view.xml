@@ -6,12 +6,8 @@
         <field name="model">patient.tag</field>
         <field name="arch" type="xml">
             <form>
-<<<<<<< HEAD
                 <header>
                 </header>
-
-=======
->>>>>>> 9787cdf987a48cf0d9219e8d2c18ae751d1e9e34
                 <sheet>
                     <group>
                         <group>
