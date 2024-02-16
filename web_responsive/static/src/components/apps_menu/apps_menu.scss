@@ -34,7 +34,7 @@
     .dropdown-menu-custom {
         @include full-screen-dropdown();
         cursor: pointer;
-        background: url("../../img/home-menu-bg-overlay.svg"),
+        background: url("home-menu-bg-overlay.svg"),
             linear-gradient(
                 to bottom,
                 $o-brand-odoo,

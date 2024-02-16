@@ -115,8 +115,6 @@
                         <group>
                             <field name="gender" invisible="context.get('hide_gender')"/>
                             <field name="note"/>
-                            <field name="video" filename="video_name"/>
-                            <field name="video_name" invisible="1"/>
                         </group>
                     </group>
                     <notebook>
