@@ -1,6 +1,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
+
 class PatientTag(models.Model):
     _name = "patient.tag"
     _description = "Patient Tag"
@@ -10,6 +11,14 @@ class PatientTag(models.Model):
     color = fields.Integer(string="Color")
     color_2 = fields.Char(string="Color 2")
     sequence = fields.Integer(string="Sequence", default=1)
+    age = fields.Integer(string="Age", compute="calculate_age")
+
+    def click(self):
+        return
+
+    def calculate_age(self):
+        for rec in self:
+            rec.age = rec.sequence + 10
 
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):

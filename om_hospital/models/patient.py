@@ -34,6 +34,12 @@ class HospitalPatient(models.Model):
     image = fields.Binary(string="Patient Image")
     appointment_ids = fields.One2many('hospital.appointment', 'patient_id', string="Appointments")
 
+    appointment_count2 = fields.Integer(string="Appointment count 2", compute='calculate_appointments')
+
+    def calculate_appointments(self):
+        for rec in self:
+            rec.appointment_count2 = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
+
     def _compute_appointment_count(self):
         for rec in self:
             appointment_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])

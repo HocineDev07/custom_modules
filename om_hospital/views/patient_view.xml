@@ -111,6 +111,7 @@
                             <field name="responsible_id"/>
                             <field name="age"/>
                             <field name="appointment_count"/>
+                            <field name="appointment_count2"/>
                         </group>
                         <group>
                             <field name="gender" invisible="context.get('hide_gender')"/>
