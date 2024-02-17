@@ -42,6 +42,7 @@ class HospitalAppointment(models.Model):
     def action_cancel(self):
         self.state = 'cancel'
 
+
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):

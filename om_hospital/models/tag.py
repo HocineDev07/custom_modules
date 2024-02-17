@@ -13,6 +13,7 @@ class PatientTag(models.Model):
     sequence = fields.Integer(string="Sequence", default=1)
     age = fields.Integer(string="Age", compute="calculate_age")
 
+
     def click(self):
         return
 

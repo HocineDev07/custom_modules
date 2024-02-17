@@ -36,6 +36,13 @@ class HospitalPatient(models.Model):
 
     appointment_count2 = fields.Integer(string="Appointment count 2", compute='calculate_appointments')
 
+
+    @api.ondelete(at_uninstall=False)
+    def check_appointments(self):
+        for rec in self:
+            if rec.appointment_count2 > 0:
+                raise ValidationError(_("patient has appointments!"))
+
     def calculate_appointments(self):
         for rec in self:
             rec.appointment_count2 = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
