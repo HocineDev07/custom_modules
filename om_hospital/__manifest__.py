@@ -32,6 +32,7 @@
         'views/patient_gender_view.xml',
         'views/sale.xml',
         'views/tag_view.xml',
+        'views/res_config_settings_views.xml',
         'report/patient_details_template.xml',
         'report/patient_card.xml',
         'report/report.xml'

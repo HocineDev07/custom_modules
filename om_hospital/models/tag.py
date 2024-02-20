@@ -1,5 +1,7 @@
+from datetime import date
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+from dateutil import relativedelta
 
 
 class PatientTag(models.Model):
@@ -11,15 +13,31 @@ class PatientTag(models.Model):
     color = fields.Integer(string="Color")
     color_2 = fields.Char(string="Color 2")
     sequence = fields.Integer(string="Sequence", default=1)
-    age = fields.Integer(string="Age", compute="calculate_age")
+    age = fields.Integer(string="Age", compute="calculate_age", inverse="inverse_calculate_age")
+    date_of_birth = fields.Date(string="Date of birth")
+
 
 
     def click(self):
         return
 
+    @api.depends('date_of_birth')
     def calculate_age(self):
         for rec in self:
-            rec.age = rec.sequence + 10
+            today = date.today()
+            if rec.date_of_birth:
+                rec.age = today.year - rec.date_of_birth.year
+            else:
+                rec.age = 1
+
+    @api.depends('age')
+    def inverse_calculate_age(self):
+        today = date.today()
+        for rec in self:
+            if rec.age > 0:
+                rec.date_of_birth = today - relativedelta.relativedelta(years=rec.age)
+            else:
+                rec.date_of_birth = today - relativedelta.relativedelta(years=1)
 
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
@@ -29,7 +47,7 @@ class PatientTag(models.Model):
         return super(PatientTag, self).copy(default=default)
 
     def unlink(self):
-        if self.name == "VIP":
+        if self.name == "VIP.":
             raise ValidationError(_("Not allowed to delete: "+ self.name))
         return super(PatientTag, self).unlink()
 

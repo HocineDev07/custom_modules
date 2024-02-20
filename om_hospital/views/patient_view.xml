@@ -114,7 +114,7 @@
                             <field name="appointment_count2"/>
                         </group>
                         <group>
-                            <field name="gender" invisible="context.get('hide_gender')"/>
+                            <field name="gender" invisible="context.get('hide_gender')" widget="radio"/>
                             <field name="note"/>
                         </group>
                     </group>
