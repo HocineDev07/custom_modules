@@ -19,6 +19,8 @@ class PatientTag(models.Model):
 
 
     def click(self):
+        cancel_day = self.env['ir.config_parameter'].get_param('om_hospital.cancel_day')
+
         return
 
     @api.depends('date_of_birth')
