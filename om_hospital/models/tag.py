@@ -17,7 +17,17 @@ class PatientTag(models.Model):
     age = fields.Integer(string="Age", compute="calculate_age", inverse="inverse_calculate_age")
     date_of_birth = fields.Date(string="Date of birth")
     reference_field = fields.Reference([('hospital.patient','Patients'), ('hospital.appointment','Appointment')], string="Reference")
+    is_birth_date = fields.Boolean(string="Is birth date", compute='_compute_is_birth_date')
 
+
+    @api.depends('date_of_birth')
+    def _compute_is_birth_date(self):
+        is_birth_date = False
+        for rec in self:
+            if rec.date_of_birth:
+                if date.today().month == rec.date_of_birth.month and date.today().day == rec.date_of_birth.day:
+                    is_birth_date = True
+            rec.is_birth_date = is_birth_date
 
 
     def click(self):
