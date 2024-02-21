@@ -16,6 +16,7 @@ class PatientTag(models.Model):
     sequence = fields.Integer(string="Sequence", default=1)
     age = fields.Integer(string="Age", compute="calculate_age", inverse="inverse_calculate_age")
     date_of_birth = fields.Date(string="Date of birth")
+    reference_field = fields.Reference([('hospital.patient','Patients'), ('hospital.appointment','Appointment')], string="Reference")
 
 
 

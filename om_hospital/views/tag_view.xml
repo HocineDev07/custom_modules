@@ -23,6 +23,7 @@
                             <field name="age"/>
                         </group>
                         <group>
+                            <field name="reference_field"/>
                             <field name="color"/>
                             <field name="color_2"/>
                         </group>
