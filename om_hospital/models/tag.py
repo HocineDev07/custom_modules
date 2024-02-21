@@ -7,6 +7,7 @@ from dateutil import relativedelta
 class PatientTag(models.Model):
     _name = "patient.tag"
     _description = "Patient Tag"
+    _order = "id desc, name asc"
 
     name = fields.Char(string="Name", required=True)
     active = fields.Boolean(string="Active", default=True)
@@ -20,8 +21,11 @@ class PatientTag(models.Model):
 
     def click(self):
         cancel_day = self.env['ir.config_parameter'].get_param('om_hospital.cancel_day')
-
-        return
+        allowed_date = self.date_of_birth - relativedelta.relativedelta(days=int(cancel_day))
+        if allowed_date <= date.today():
+            raise ValidationError(_("You can not cancel this tag!"))
+        else:
+            raise ValidationError(_("You can cancel this tag"))
 
     @api.depends('date_of_birth')
     def calculate_age(self):
