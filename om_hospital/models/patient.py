@@ -36,6 +36,9 @@ class HospitalPatient(models.Model):
 
     appointment_count2 = fields.Integer(string="Appointment count 2", compute='calculate_appointments')
 
+    phone = fields.Char(string="Phone")
+    email = fields.Char(string="Email")
+    website = fields.Char(string="Website")
 
     @api.ondelete(at_uninstall=False)
     def check_appointments(self):
@@ -43,9 +46,15 @@ class HospitalPatient(models.Model):
             if rec.appointment_count2 > 0:
                 raise ValidationError(_("patient has appointments!"))
 
+    @api.depends('appointment_ids')
     def calculate_appointments(self):
-        for rec in self:
-            rec.appointment_count2 = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
+        appointment_group = self.env['hospital.appointment'].read_group(domain=[], fields=['patient_id'], groupby=['patient_id'])
+        for appointment in appointment_group:
+            patient_id = appointment.get('patient_id')[0]
+            patient_rec = self.browse(patient_id)
+            patient_rec.appointment_count2 = appointment['patient_id_count']
+            self -= patient_rec
+        self.appointment_count2 = 0
 
     def _compute_appointment_count(self):
         for rec in self:
@@ -103,7 +112,7 @@ class HospitalPatient(models.Model):
             'name': 'Appointments',
             'res_model': 'hospital.appointment',
             'domain': [('patient_id', '=', self.id)],
-            'context': {'default_patient_id': self.id},
+            'context': {'default_patient_id': self.id, 'search_default_draft': 1},
             'view_mode': 'tree,form',
             'target': 'current',
         }

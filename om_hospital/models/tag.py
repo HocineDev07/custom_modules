@@ -20,6 +20,7 @@ class PatientTag(models.Model):
     is_birth_date = fields.Boolean(string="Is birth date", compute='_compute_is_birth_date')
 
 
+
     @api.depends('date_of_birth')
     def _compute_is_birth_date(self):
         is_birth_date = False
