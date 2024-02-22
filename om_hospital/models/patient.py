@@ -16,7 +16,7 @@ class HospitalPatient(models.Model):
         res['note'] = 'NEW Patient Created'
         return res
 
-    name = fields.Char(string='Name', required=True, tracking=True)
+    name = fields.Char(string='Name', required=True, tracking=1)
     reference = fields.Char(string='Order Reference', required=True, copy=False, readonly=True,
                             default=lambda self: _('New'))
     age = fields.Integer(string='Age', tracking=True)
