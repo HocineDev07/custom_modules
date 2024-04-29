@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_template_form_view_zoom" model="ir.ui.view">
+        <field name="name">product.template.form.view.zoom</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="image_1920" position="replace">
+                 <field name="image_1920" widget="image" class="oe_avatar o_survey_choice_img d-flex my-3 justify-content-center" options="{'preview_image': 'image_128'}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+
+<!--d-flex my-3 justify-content-center-->
