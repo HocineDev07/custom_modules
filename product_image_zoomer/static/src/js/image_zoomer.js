@@ -1,7 +1,7 @@
 odoo.define('product_image_zoomer.image_zoomer', function (require) {
     "use strict";
 
-    var publicWidget = require('web.public.widget');
+    const publicWidget = require('@web/legacy/js/public/public_widget');
 
     var ImageZoomer = publicWidget.Widget.extend({
         template: 'product_image_zoomer.image_zoomer_templates.xml',
@@ -18,14 +18,15 @@ odoo.define('product_image_zoomer.image_zoomer', function (require) {
             this.zoomImageScale = 1;
             // The image is needed to render the template survey_image_zoom.
             this.sourceImage = params.sourceImage;
-            this._super(...arguments);
+            this._super.apply(this, arguments); // Call the super init method
+
         },
         /**
          * Open a transparent modal displaying the survey choice image.
          * @override
          */
         async start() {
-            const superResult = await this._super(...arguments);
+            const superResult = await this._super.apply(this, arguments); // Call the super start method
             // Prevent having hidden modal in the view.
             this.$el.on('hidden.bs.modal', () => this.destroy());
             this.$el.modal('show');

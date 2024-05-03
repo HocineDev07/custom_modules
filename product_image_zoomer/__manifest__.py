@@ -18,7 +18,7 @@
     'version': '0.1',
     'license': 'LGPL-3',
     # any module necessary for this one to work correctly
-    'depends': ['product'],
+    'depends': ['product', 'web'],
 
     # always loaded
     'data': [
@@ -26,9 +26,16 @@
     ],
     'assets': {
         'web.assets_backend': [
+            ('include', "web.chartjs_lib"),
+            ('include', 'web._assets_helpers'),
+            ('include', 'web._assets_frontend_helpers'),
             'product_image_zoomer/static/src/scss/image_zoomer_style.scss',
-            # 'product_image_zoomer/static/src/js/image_zoomer.js',
-            # 'product_image_zoomer/static/src/xml/image_zoomer_templates.xml',
+            #'product_image_zoomer/static/src/js/image_zoomer.js',
+            # 'product_image_zoomer/static/src/js/zoomer_form.js',
+            # 'product_image_zoomer/static/src/js/survey_preload_image_mixin.js',
+            'product_image_zoomer/static/src/xml/image_zoomer_templates.xml',
+            'web/static/src/scss/pre_variables.scss',
+            'web/static/lib/bootstrap/scss/_variables.scss',
         ],
     },
 }
