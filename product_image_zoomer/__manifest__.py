@@ -27,8 +27,8 @@
     'assets': {
         'web.assets_backend': [
             'product_image_zoomer/static/src/scss/image_zoomer_style.scss',
-            # 'product_image_zoomer/static/src/js/image_zoomer.js',
-            # 'product_image_zoomer/static/src/xml/image_zoomer_templates.xml',
+            #'product_image_zoomer/static/src/js/image_zoomer.js',
+            'product_image_zoomer/static/src/xml/image_zoomer_templates.xml',
         ],
     },
 }

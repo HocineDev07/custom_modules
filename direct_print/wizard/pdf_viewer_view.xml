@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="pdf_viewer_view" model="ir.ui.view">
+        <field name="name">PDF Viewer</field>
+        <field name="model">pdf.viewer</field>
+        <field name="arch" type="xml">
+            <form string="PDF View">
+                <field name="pdf_view" widget="pdf_viewer"/>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pdf_viewer_view" model="ir.actions.act_window">
+        <field name="name">Open PDF Viewer</field>
+        <field name="res_model">pdf.viewer</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pdf_viewer_view"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

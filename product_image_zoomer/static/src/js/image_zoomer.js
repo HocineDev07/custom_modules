@@ -1,9 +1,9 @@
 odoo.define('product_image_zoomer.image_zoomer', function (require) {
     "use strict";
 
-    var publicWidget = require('web.public.widget');
+    const publicWidget = require('web.public.widget');
 
-    var ImageZoomer = publicWidget.Widget.extend({
+    return publicWidget.Widget.extend({
         template: 'product_image_zoomer.image_zoomer_templates.xml',
         events: {
             'wheel .o_survey_img_zoom_image': '_onImgScroll',
@@ -110,5 +110,4 @@ odoo.define('product_image_zoomer.image_zoomer', function (require) {
             this.zoomImageScale = newZoomImageScale;
         },
     });
-    return ImageZoomer;
 });
