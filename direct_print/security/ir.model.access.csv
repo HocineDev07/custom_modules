@@ -1,3 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_direct_print_pdf_viewer,direct_print.pdf_viewer,model_pdf_viewer,base.group_user,1,1,1,1
-access_direct_ir_actions_report,direct_print.ir_actions_report,model_ir_actions_report,base.group_user,1,1,1,1
