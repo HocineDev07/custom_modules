@@ -17,7 +17,7 @@
         <field name="name">Open PDF Viewer</field>
         <field name="res_model">pdf.viewer</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="pdf_viewer_view"/>
+        <field name="view_id" ref="direct_print.pdf_viewer_view"/>
         <field name="target">new</field>
     </record>
 </odoo>
