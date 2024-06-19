@@ -1,2 +1,1 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-direct_print_2.direct_print_wizard,access_direct_print_wizard,direct_print_2.model_direct_print_wizard,base.group_user,1,1,1,1
