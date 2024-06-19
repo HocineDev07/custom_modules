@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_direct_print_wizard" model="ir.ui.view">
+        <field name="name">direct.print.wizard.form</field>
+        <field name="model">direct.print.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Direct Print Wizard">
+                <group>
+                    <field name="pdf_view" filename="report_name" readonly="1"/>
+                </group>
+                <footer>
+                    <button string="Close" class="btn-primary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_direct_print_wizard" model="ir.actions.act_window">
+        <field name="name">Direct Print Wizard</field>
+        <field name="res_model">direct.print.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_direct_print_wizard"/>
+    </record>
+</odoo>

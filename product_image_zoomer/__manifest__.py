@@ -36,6 +36,7 @@
             'product_image_zoomer/static/src/xml/image_zoomer_templates.xml',
             'web/static/src/scss/pre_variables.scss',
             'web/static/lib/bootstrap/scss/_variables.scss',
+            'product_image_zoomer/static/src/xml/image_zoomer_templates.xml',
         ],
     },
 }

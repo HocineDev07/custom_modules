@@ -1,9 +1,13 @@
 odoo.define('product_image_zoomer.image_zoomer', function (require) {
     "use strict";
 
+<<<<<<< HEAD
     const publicWidget = require('@web/legacy/js/public/public_widget');
+=======
+    const publicWidget = require('web.public.widget');
+>>>>>>> 82ec2e6e9859e973dc1504599dcfc02d8ad964dc
 
-    var ImageZoomer = publicWidget.Widget.extend({
+    return publicWidget.Widget.extend({
         template: 'product_image_zoomer.image_zoomer_templates.xml',
         events: {
             'wheel .o_survey_img_zoom_image': '_onImgScroll',
@@ -111,5 +115,4 @@ odoo.define('product_image_zoomer.image_zoomer', function (require) {
             this.zoomImageScale = newZoomImageScale;
         },
     });
-    return ImageZoomer;
 });

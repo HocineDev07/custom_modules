@@ -27,6 +27,7 @@
  **********************************************************/
 
 .o_survey_img_zoom_modal {
+<<<<<<< HEAD
    cursor: pointer;
    .o_survey_img_zoom_dialog {
        background-color: rgba(0,0,0,0.65);
@@ -57,4 +58,36 @@
            }
        }
    }
+=======
+    cursor: pointer;
+    .o_survey_img_zoom_dialog {
+        background-color: rgba(0,0,0,0.65);
+        @include media-breakpoint-down(sm) {
+            height: 80% !important;
+        }
+        .o_survey_img_zoom_body {
+            font-size: 1.5rem;
+            img {
+                max-width: 90%;
+                min-width: clamp(250px, 60%, 450px);
+                max-height: 90%;
+                object-fit: contain;
+            }
+            .o_survey_img_zoom_close_btn {
+                right: 12px;
+                top: 12px;
+                z-index: 1;
+            }
+            .o_survey_img_zoom_controls_wrapper {
+                bottom: 5%;
+                .o_survey_img_zoom_in_btn, .o_survey_img_zoom_out_btn {
+                    background-color: rgba(0,0,0,0.65);
+                    &:hover .fa {
+                        color: grey;
+                    }
+                }
+            }
+        }
+    }
+>>>>>>> 82ec2e6e9859e973dc1504599dcfc02d8ad964dc
 }
