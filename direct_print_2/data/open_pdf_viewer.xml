@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="action_open_report_wizard" model="ir.actions.server">
+            <field name="name">Open Report Wizard</field>
+            <field name="model_id" ref="base.model_ir_actions_report"/>
+            <field name="state">code</field>
+            <field name="code">
+action = env['ir.actions.report']._create_pdf_viewer(action['report_name'], env.context.get('active_ids'))
+            </field>
+        </record>
+    </data>
+</odoo>

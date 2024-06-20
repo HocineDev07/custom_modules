@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="custom_report_action" model="ir.actions.server">
+            <field name="name">Open PDF Viewer</field>
+            <field name="model_id" ref="base.model_ir_actions_report"/>
+            <field name="binding_model_id" ref="base.model_ir_actions_report"/>
+            <field name="state">code</field>
+            <field name="code">
+action = env['ir.actions.report']._create_pdf_viewer(action, context.get('active_ids'))
+            </field>
+        </record>
+
+        <record id="ir_actions_report_override" model="ir.actions.server">
+            <field name="name">Override Report Actions</field>
+            <field name="model_id" ref="base.model_ir_actions_report"/>
+            <field name="state">code</field>
+            <field name="code">
+# Override all ir.actions.report actions
+reports = env['ir.actions.report'].search([])
+for report in reports:
+    report.write({'binding_model_id': ref('direct_print_2.custom_report_action')})
+            </field>
+        </record>
+    </data>
+</odoo>

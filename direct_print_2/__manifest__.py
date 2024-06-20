@@ -7,6 +7,9 @@
     'depends': ['base', 'web'],
     'data': [
         'security/ir.model.access.csv',
+        'data/open_pdf_viewer.xml',
+        'views/view_pdf_viewer_form.xml',
+        # 'views/custom_report_action.xml',
     ],
     'installable': True,
     'application': False,
