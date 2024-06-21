@@ -9,13 +9,13 @@ class ReportCustomization(models.AbstractModel):
     def _get_report_from_name(self, report_name):
         report = super(ReportCustomization, self)._get_report_from_name(report_name)
         # Force all reports to use qweb-html
-        report.report_type = 'qweb-html'
+        # report.report_type = 'qweb-html'
         return report
 
-    def _render_qweb_pdf(self, report_ref, docids, data=None):
-        # Render the report
-        html = self._render_qweb_html(report_ref, docids, data=data)
-        return self._convert_to_pdf(html)
+    # def _render_qweb_pdf(self, report_ref, docids, data=None):
+    #     # Render the report
+    #     html = self._render_qweb_html(report_ref, docids, data=data)
+    #     return self._convert_to_pdf(html)
 
     def _convert_to_pdf(self, html):
         # You can use any HTML to PDF conversion library, e.g., wkhtmltopdf
