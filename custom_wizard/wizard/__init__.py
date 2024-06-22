@@ -1,1 +1,1 @@
-from . import report_hello_wizard
+from . import print_wizard
