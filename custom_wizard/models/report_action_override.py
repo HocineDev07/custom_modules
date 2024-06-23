@@ -5,6 +5,7 @@ class ReportActionOverride(models.AbstractModel):
     _inherit = 'ir.actions.report'
 
     def _render_qweb_pdf(self, res_ids=None, data=None):
+
         if self.env.context.get('show_wizard_instead_of_report', False):
             wizard = self.env['print.wizard'].create({})
             return wizard.action_show_message()
