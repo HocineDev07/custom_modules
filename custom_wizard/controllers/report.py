@@ -1,17 +1,30 @@
-# controllers/report.py
 from odoo import http
 from odoo.http import request
+from odoo.addons.web.controllers.report import ReportController
+import logging
+import json
+
+_logger = logging.getLogger(__name__)
 
 
-class ReportController(http.Controller):
+class CustomReportController(ReportController):
+    @http.route()
+    def report_routes(self, reportname, docids=None, converter=None, **data):
+        # Add your custom logic here
+        # For example, log the report download
+        _logger.info(f"User {request.env.user.name} is downloading the report {reportname}")
 
-    @http.route(['/report/download'], type='http', auth='user')
-    def report_download(self, data, context=None, token=None):
-        # docids = [int(i) for i in docids.split(',') if i]
+        # Create a wizard and open it
+        # wizard = request.env['print.wizard'].create({})
+        # return request.render('custom_wizard.view_print_wizard_form', {'wizard': wizard})
 
-        # Add context to show the wizard
-        context = dict(request.env.context, show_wizard_instead_of_report=True)
-        # report = request.env['ir.actions.report'].with_context(context)._get_report_from_name(report_name)
+        wizard = request.env['print.wizard'].create({})
+        action = wizard.action_show_message()
+        # Return the response as JSON
+        return request.make_response(
+            json.dumps(action),
+            headers={'Content-Type': 'application/json'}
+        )
 
-        # if report:
-        #     return report._render_qweb_pdf(docids, data=data)[0]
+        # Call the super method to continue the normal flow
+        # return super(CustomReportController, self).report_routes(reportname, docids=docids, converter=converter, **data)

@@ -10,11 +10,10 @@ class PrintWizard(models.TransientModel):
 
     def action_show_message(self):
         return {
+            'name': 'Message Wizard',
             'type': 'ir.actions.act_window',
-            'name': 'Message',
-            'res_model': 'print.wizard',
             'view_mode': 'form',
-            'view_id': self.env.ref('custom_wizard.print_wizard_form_view').id,
+            'res_model': 'print.wizard',
             'target': 'new',
             'res_id': self.id,
         }
