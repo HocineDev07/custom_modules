@@ -1,5 +1,5 @@
 # models/print_wizard.py
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class PrintWizard(models.TransientModel):
@@ -8,12 +8,14 @@ class PrintWizard(models.TransientModel):
 
     message = fields.Char(string='Message', default='Hello')
 
+    @api.model
     def action_show_message(self):
+        print('--------------')
         return {
-            'name': 'Message Wizard',
             'type': 'ir.actions.act_window',
-            'view_mode': 'form',
             'res_model': 'print.wizard',
+            'view_mode': 'form',
+            'view_id': self.env.ref('custom_wizard.view_print_wizard_form').id,
             'target': 'new',
             'res_id': self.id,
         }

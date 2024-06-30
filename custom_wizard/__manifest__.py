@@ -7,6 +7,11 @@
         'wizard/print_wizard_view.xml',
         'views/sale_order_wizard.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'custom_wizard/static/src/js/report_intercept.js',
+        ],
+    },
     'installable': True,
     'application': False,
 }
