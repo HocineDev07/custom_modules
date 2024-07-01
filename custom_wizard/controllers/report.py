@@ -18,13 +18,13 @@ class CustomReportController(ReportController):
         # wizard = request.env['print.wizard'].create({})
         # return request.render('custom_wizard.view_print_wizard_form', {'wizard': wizard})
 
-        wizard = request.env['print.wizard'].create({})
-        action = wizard.action_show_message()
-        # Return the response as JSON
-        return request.make_response(
-            json.dumps(action),
-            headers={'Content-Type': 'application/json'}
-        )
+        # wizard = request.env['print.wizard'].create({})
+        # action = wizard.action_show_message()
+        # # Return the response as JSON
+        # return request.make_response(
+        #     json.dumps(action),
+        #     headers={'Content-Type': 'application/json'}
+        # )
 
         # Call the super method to continue the normal flow
-        # return super(CustomReportController, self).report_routes(reportname, docids=docids, converter=converter, **data)
+        return super(CustomReportController, self).report_routes(reportname, docids=docids, converter=converter, **data)
