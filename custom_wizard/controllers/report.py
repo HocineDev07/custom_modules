@@ -8,15 +8,18 @@ _logger = logging.getLogger(__name__)
 
 
 class CustomReportController(ReportController):
-    @http.route()
+    @http.route([
+        '/report/<converter>/<reportname>',
+        '/report/<converter>/<reportname>/<docids>',
+    ], type='http', auth='user', website=True)
     def report_routes(self, reportname, docids=None, converter=None, **data):
         # Add your custom logic here
         # For example, log the report download
         _logger.info(f"User {request.env.user.name} is downloading the report {reportname}")
 
         # Create a wizard and open it
-        # wizard = request.env['print.wizard'].create({})
-        # return request.render('custom_wizard.view_print_wizard_form', {'wizard': wizard})
+        wizard = request.env['print.wizard'].create({})
+        return request.render('custom_wizard.view_print_wizard_form', {'wizard': wizard})
 
         # wizard = request.env['print.wizard'].create({})
         # action = wizard.action_show_message()
@@ -27,4 +30,4 @@ class CustomReportController(ReportController):
         # )
 
         # Call the super method to continue the normal flow
-        return super(CustomReportController, self).report_routes(reportname, docids=docids, converter=converter, **data)
+        # return super(CustomReportController, self).report_routes(reportname, docids=docids, converter=converter, **data)
