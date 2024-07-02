@@ -31,3 +31,8 @@ class CustomReportController(ReportController):
 
         # Call the super method to continue the normal flow
         # return super(CustomReportController, self).report_routes(reportname, docids=docids, converter=converter, **data)
+
+    @http.route(['/report/download'], type='http', auth="user")
+    def report_download(self, data, context=None, token=None):
+        _logger.info("---------> downloading...")
+        return super(CustomReportController, self).report_download(data, context, token)
