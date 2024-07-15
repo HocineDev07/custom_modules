@@ -35,4 +35,5 @@ class CustomReportController(ReportController):
     @http.route(['/report/download'], type='http', auth="user")
     def report_download(self, data, context=None, token=None):
         _logger.info("---------> downloading...")
+        # Get an instance of your model
         return super(CustomReportController, self).report_download(data, context, token)

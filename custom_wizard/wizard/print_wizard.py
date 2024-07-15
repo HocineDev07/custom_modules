@@ -10,7 +10,7 @@ class PrintWizard(models.TransientModel):
 
     @api.model
     def action_show_message(self):
-        print('--------------')
+        print('-------------->')
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'print.wizard',
