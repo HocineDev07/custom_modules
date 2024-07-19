@@ -6,6 +6,8 @@ class PrintWizard(models.TransientModel):
     _name = 'print.wizard'
     _description = 'Print Wizard'
 
+    report_data = fields.Binary('Report Data', readonly=True)
+    report_name = fields.Char('Report Name', readonly=True)
     message = fields.Char(string='Message', default='Hello')
 
     @api.model
