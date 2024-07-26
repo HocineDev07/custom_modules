@@ -7,6 +7,7 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
+
 class CustomReportController(http.Controller):
 
     @http.route(['/report/open_wizard'], type='json', auth="user")
