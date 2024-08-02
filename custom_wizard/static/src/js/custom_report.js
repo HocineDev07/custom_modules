@@ -58,6 +58,15 @@ function cleanContext(context) {
     return cleanContext;
 }
 
+function filterUserContext(context) {
+    // Create a shallow copy to avoid modifying the original object
+    const filteredContext = { ...context };
+    // Remove properties known to cause circular references
+    delete filteredContext.services;
+    // Add any other properties that might cause circular references
+    return filteredContext;
+}
+
 async function openReportWizard(action, type, userContext) {
     console.log("Custom report wizard function called with action:", action);
     console.log("action report_type: ", action.report_type);
@@ -89,17 +98,27 @@ async function openReportWizard(action, type, userContext) {
     const url = getReportUrl(action, type, userContext);
     console.log("Generated Report URL:", url);
 
+    // Filter userContext to avoid circular references
+    const filteredUserContext = filterUserContext(userContext);
+
     const cleanUserContext = cleanContext(userContext);
 
     const response = await jsonrpc('/report/open_wizard', {
         data: JSON.stringify([url, action.report_type]),
-        context: JSON.stringify(cleanUserContext),
+        context: JSON.stringify(filteredUserContext),
     });
 
-    if (response.error) {
-        return { success: false, message: response.error };
+    if (response.success) {
+        // Redirect to the wizard action to open the wizard
+        this.do_action({
+            type: 'ir.actions.act_window',
+            res_model: 'print.wizard',
+            res_id: response.wizard_id,
+            views: [[false, 'form']],
+            target: 'new',
+        });
     } else {
-        return { success: true, message: response.message };
+        console.error(response.message);
     }
 }
 
