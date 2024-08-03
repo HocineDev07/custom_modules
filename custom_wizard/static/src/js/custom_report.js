@@ -58,18 +58,10 @@ function cleanContext(context) {
     return cleanContext;
 }
 
-function filterUserContext(context) {
-    // Create a shallow copy to avoid modifying the original object
-    const filteredContext = { ...context };
-    // Remove properties known to cause circular references
-    delete filteredContext.services;
-    // Add any other properties that might cause circular references
-    return filteredContext;
-}
-
 async function openReportWizard(action, type, userContext) {
     console.log("Custom report wizard function called with action:", action);
     console.log("action report_type: ", action.report_type);
+
 
     if (action.report_type === 'qweb-pdf') {
         type = 'pdf';
@@ -97,15 +89,11 @@ async function openReportWizard(action, type, userContext) {
     // Ensure URL is correctly formatted
     const url = getReportUrl(action, type, userContext);
     console.log("Generated Report URL:", url);
-
-    // Filter userContext to avoid circular references
-    const filteredUserContext = filterUserContext(userContext);
-
     const cleanUserContext = cleanContext(userContext);
 
     const response = await jsonrpc('/report/open_wizard', {
         data: JSON.stringify([url, action.report_type]),
-        context: JSON.stringify(filteredUserContext),
+        context: JSON.stringify(cleanUserContext),
     });
 
     if (response.success) {
