@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <template id="question_suggested_value_image_inherit" inherit_id="survey.question_suggested_value_image">
+            <xpath expr="//div[contains(@class, 'o_survey_choice_img')]" position="replace">
+                <div t-if="label.value_image">
+                    <t t-if="not env.user.has_group('survey.group_survey_user')">
+                        <div class="d-flex my-3 justify-content-center">
+                            <img t-att-src="'/survey/get_question_image/%s/%s/%s/%s' % (survey.access_token, answer.access_token, question.id, label.id)"/>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div t-field="label.value_image" class="d-flex my-3 justify-content-center"
+                             t-options="{'widget': 'image', 'alt-field': 'name', 'itemprop': 'image'}"/>
+                    </t>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
