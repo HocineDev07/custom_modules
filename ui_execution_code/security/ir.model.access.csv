@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ui_execution_code_orm_execution,ui_execution_code.orm_execution,model_orm_execution,base.group_user,1,1,1,1
+access_ui_execution_code_sql_execution,ui_execution_code.sql_execution,model_sql_execution,base.group_user,1,1,1,1

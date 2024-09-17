@@ -1,0 +1,28 @@
+<odoo>
+    <template id="sql_execution_result_template">
+            <table>
+                <thead>
+                    <tr>
+                        <!-- Define the table header based on the query result -->
+                        <t t-foreach="result_headers" t-as="header">
+                            <th>
+                                <t t-esc="header"/>
+                            </th>
+                        </t>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Populate the table rows based on the query result -->
+                    <t t-foreach="result" t-as="row">
+                        <tr>
+                            <t t-foreach="row" t-as="cell">
+                                <td>
+                                    <t t-esc="cell"/>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+    </template>
+</odoo>

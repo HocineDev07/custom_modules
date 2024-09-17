@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_orm_execution_form" model="ir.ui.view">
+        <field name="name">orm.execution.form</field>
+        <field name="model">orm.execution</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="orm_expression" widget="ace" options="{'mode': 'python'}"/>
+                    </group>
+                    <group>
+                        <button name="compute_result" type="object" string=" Execute" class="oe_highlight fa fa-play"/>
+                        <button name="clear_result" type="object" string=" Clear" class="fa fa-refresh"/>
+                    </group>
+                    <group>
+                         <div class="label-above">
+                            <div class="o_form_label">Result:</div>
+                            <div class="content">
+                                <field name="result"/>
+                            </div>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_orm_execution" model="ir.actions.act_window">
+        <field name="name">ORM Execution</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">orm.execution</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_orm_execution_root"
+              name="Code Execution"
+              parent="base.menu_custom"
+              sequence="0"/>
+
+    <menuitem id="menu_orm_execution"
+              name="ORM Execution"
+              parent="menu_orm_execution_root"
+              action="action_orm_execution"
+              sequence="1"/>
+
+</odoo>

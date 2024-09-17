@@ -1,0 +1,20 @@
+/* CSS for horizontal scrolling */
+
+.custom_table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    min-width: 1440px;
+    margin: 0 auto;
+    overflow-x: auto;
+    /*white-space: nowrap;*/
+}
+
+.label-above {
+    display: flex;
+    flex-direction: column;
+}
+
+.large_font_size {
+    font-size: 16px;
+}
